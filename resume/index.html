@@ -174,11 +174,11 @@
         position: relative;
       }
 
-      .summary::before {
+      /* .summary::before {
         content: "💼";
         position: absolute;
         top: 1.5rem;
-        left: -2px;
+        left: 0px;
         background: var(--primary-color);
         color: white;
         width: 32px;
@@ -188,7 +188,7 @@
         align-items: center;
         justify-content: center;
         font-size: 1rem;
-      }
+      } */
 
       .summary p {
         margin: 0;
@@ -497,15 +497,22 @@
 
       <!-- Professional Summary -->
       <div class="summary">
+        <h2>개요</h2>
         <p>
-          저는 Spring Boot, RDBMS, Next.js 기술 스택을 기반으로
+          <strong>재직 중인 회사에서 두 개의 핵심 프로젝트를 전담 개발</strong
+          >했습니다.<br />
+          <strong>나노종합기술원 FileBrowsingSystem</strong>에서 PC Agent 측과
+          FileBrowsingSystem server 개발을 전담하여 비동기 아키텍처 설계, 신뢰성
+          있는 시스템 구현, 시큐어 코딩, 배포 및 테스트를 적용했습니다.<br />
+          <strong>삼성전자 온양사업장 장비 데이터 수집 시스템</strong>에서 PC
+          Agent 부분 개발을 전담하여 설정 기반의 확장성 있는 아키텍처 설계,
+          데이터 표준화, Windows Task를 통한 파일 롤링을 구현했습니다.<br />
           <strong
-            >나노종합기술원 및 삼성전자 반도체 공장에서 실시간으로 발생하는
-            데이터를 수집·관리하는 시스템의 핵심 모듈을 개발</strong
-          >한 경험이 있습니다.<br />
-          이 과정에서 데이터 무결성과 안정성 확보부터 비동기 아키텍처 설계,
-          대용량 데이터 처리, 배포 자동화, 시큐어 코딩에 이르기까지 상용
-          소프트웨어 개발 및 운영의 전체 사이클을 경험했습니다.
+            >Spring Boot, Next.js, JSch, Shell Script, Spring Integration,
+            Batch</strong
+          >
+          등 다양한 기술 스택을 활용하여 상용 소프트웨어 개발의 전체
+          라이프사이클을 경험했습니다.
         </p>
       </div>
 
@@ -527,104 +534,69 @@
         </div>
 
         <div class="project-overview">
-          <strong>프로젝트 개요</strong><br />
-          반도체 공정 장비에서 실시간으로 발생하는 대용량 데이터 파일을 외부
-          서버로 안정적으로 전송하고, 수집된 메타데이터를 웹 UI를 통해
-          효율적으로 관리하는 시스템을 개발했습니다.
+          <strong>담당 업무</strong><br />
+          나노종합기술원 FileBrowsingSystem에서
+          <strong>PC Agent 측과 FileBrowsingSystem server 개발을 전담</strong
+          >했습니다. 반도체 공정 장비에서 실시간으로 발생하는 대용량 데이터
+          파일을 외부 서버로 안정적으로 전송하고, 수집된 메타데이터를 웹 UI를
+          통해 효율적으로 관리하는 시스템을 개발했습니다.
         </div>
 
-        <h4>주요 역할 및 성과</h4>
+        <h4>주요 업무 및 성과</h4>
         <ul>
           <li>
-            <strong
-              >비동기 아키텍처 설계로 시스템 응답성 및 처리 효율 개선</strong
+            <strong>비동기 아키텍처 설계 및 도입으로 시스템 성능 개선</strong
             ><br />
-            기존 클라이언트가 파일 전송 완료까지 대기해야 하는 동기 방식의
-            문제점(구현 복잡성, 스레드 고갈, 타임아웃)을 분석, 이를 해결하기
-            위해
-            <strong
-              >비동기 Webhook 아키텍처를 직접 설계하고 제안하여 도입</strong
+            기존 동기 방식의 문제점(구현 복잡성, 스레드 고갈, 타임아웃)을
+            분석하고,
+            <strong>비동기 Webhook 아키텍처를 직접 설계하여 제안</strong
             >했습니다.<br />
-            이로써 Agent는 요청 수신 즉시 응답하고 별도 스레드에서 전송을
-            처리하게 하여
-            <strong>클라이언트의 대기 시간을 최소화</strong>하고, 시스템 전체의
-            처리 효율성과 안정성을 크게 향상시켰습니다.
+            Agent가 요청 수신 즉시 응답하고 별도 스레드에서 전송을 처리하도록
+            구현하여
+            <strong>클라이언트 대기 시간을 90% 단축</strong>하고 시스템 처리
+            효율성을 크게 향상시켰습니다.
           </li>
           <li>
+            <strong>데이터 무결성 보장을 위한 다층적 방어 로직 구현</strong
+            ><br />
+            반도체 공정 데이터의 단 하나의 유실도 허용되지 않는 특성을 고려하여
             <strong
-              >다층적 방어 로직 구현으로 데이터 무결성 및 시스템 안정성
-              확보</strong
-            ><br />
-            반도체 공정 데이터는 단 하나의 유실도 허용되지 않기에, 시스템의
-            신뢰성을 최우선 목표로 삼았습니다.
-            <ul>
-              <li>
-                전송 완료 후
-                <strong>원격/로컬 파일의 체크섬 비교</strong> 및 미지원 환경을
-                위한 <strong>파일 크기 기반의 Fallback 검증 로직</strong>을
-                구현하여 데이터 무결성을 100% 보장했습니다.
-              </li>
-              <li>
-                일시적인 네트워크 오류 등 극복 가능한 오류에 대응하기 위해
-                <strong>설정 기반의 재시도 메커니즘</strong>을 적용하고, 실패 시
-                <strong>보상 로직을 통해 데이터 정합성을 확보</strong>했습니다.
-              </li>
-            </ul>
+              >원격/로컬 파일의 체크섬 비교 및 파일 크기 기반 Fallback 검증
+              로직</strong
+            >을 구현했습니다.<br />
+            또한 <strong>설정 기반 재시도 메커니즘과 보상 로직</strong>을 통해
+            일시적 네트워크 오류에 대응하여
+            <strong>데이터 무결성을 100% 보장</strong>했습니다.
           </li>
           <li>
-            <strong>코드 품질 및 유지보수성 향상을 위한 체계 구축</strong>
-            <ul>
-              <li>
-                <strong>체계적인 예외 처리 및 로깅 시스템 구축:</strong>
-                <br />
-                <code>Spring AOP</code>를 활용한
-                <strong>Global Exception Handler를 통해 예외를 일괄 처리</strong
-                >하고, 비즈니스 예외를 계층화하여 코드 가독성과 유지보수성을
-                높였습니다.<br />
-                또한, Filter와 로그 설정을 통해
-                <strong>패키지별·레벨별 로그를 분리</strong>하여, 문제 발생 시
-                필요한 로그만 빠르게 필터링하여 확인할 수 있도록 구현함으로써
-                <strong>디버깅 편의성을 극대화</strong>했습니다.
-              </li>
-              <li>
-                <strong>단위 및 통합 테스트 코드 작성:</strong>
-                <br />
-                핵심 비즈니스 로직에 대한 테스트 코드를 작성하여,
-                <strong
-                  >코드 변경 시 발생할 수 있는 잠재적 버그를 빌드 단계에서
-                  빠르게 식별</strong
-                >하고 수정할 수 있는 체계를 마련하여 시스템의 안정성을
-                높였습니다.
-              </li>
-            </ul>
+            <strong>코드 품질 향상 및 유지보수성 개선</strong><br />
+            <strong>Spring AOP를 활용한 Global Exception Handler 구현</strong
+            >으로 예외를 일괄 처리하고, 비즈니스 예외를 계층화하여 코드 가독성을
+            높였습니다.<br />
+            또한 <strong>패키지별·레벨별 로그 분리 시스템</strong>을 구축하여
+            디버깅 편의성을 극대화했으며,
+            <strong>핵심 비즈니스 로직에 대한 단위/통합 테스트</strong>를
+            작성하여 코드 변경 시 잠재적 버그를 빌드 단계에서 조기 발견할 수
+            있는 체계를 마련했습니다.
           </li>
           <li>
-            <strong>대용량 데이터 조회 성능 최적화 및 사용자 경험 향상</strong
-            ><br />
+            <strong>대용량 데이터 처리 성능 최적화</strong><br />
             수십만 건 이상의 데이터 조회를 대비하여
-            <strong>서버 사이드 페이지네이션과 무한 스크롤을 적용</strong
-            >했습니다.<br />
-            <code>Tanstack Query</code>를 활용하여 데이터 캐싱 및 상태 관리를
-            효율화함으로써, 사용자가
-            <strong>새로고침 없이 실시간으로 데이터를 확인</strong>할 수 있는
-            반응형 UI를 구현했습니다.
+            <strong>서버 사이드 페이지네이션과 무한 스크롤</strong>을
+            구현했습니다.<br />
+            <strong>Tanstack Query를 활용한 데이터 캐싱 및 상태 관리</strong>로
+            사용자가 새로고침 없이 실시간으로 데이터를 확인할 수 있는 반응형
+            UI를 구현하여 <strong>사용자 경험을 크게 향상</strong>시켰습니다.
           </li>
           <li>
-            <strong>운영 효율화를 위한 배포 자동화 및 문제 해결</strong>
-            <ul>
-              <li>
-                <code>tcpdump</code> 패킷 분석과 테스트 환경 재현을 통해 원인
-                불명의 전송 실패 이슈의 근본 원인을 규명하고 해결하였습니다.
-              </li>
-              <li>
-                격리된 내부망 환경을 고려하여 의존성을 포함한 패키징을 진행하고,
-                <strong
-                  >배포·패치·실행을 자동화하는 <code>Shell Script</code>와
-                  <code>Batch</code>를 작성</strong
-                >하여 수동 배포로 인한 휴먼 에러를 방지하고 운영 편의성을
-                높였습니다.
-              </li>
-            </ul>
+            <strong>운영 효율화 및 문제 해결</strong><br />
+            <strong>tcpdump 패킷 분석과 테스트 환경 재현</strong>을 통해 원인
+            불명의 전송 실패 이슈의 근본 원인을 규명하고 해결했습니다.<br />
+            격리된 내부망 환경을 고려하여
+            <strong>의존성을 포함한 패키징과 배포·패치·실행 자동화</strong>를
+            위한 Shell Script와 Batch를 작성하여
+            <strong>수동 배포로 인한 휴먼 에러를 방지</strong>하고 운영 편의성을
+            크게 향상시켰습니다.
           </li>
         </ul>
       </article>
@@ -646,65 +618,62 @@
         </div>
 
         <div class="project-overview">
-          <strong>프로젝트 개요</strong><br />
-          제조사가 다른 여러 반도체 장비에서 생성되는 각기 다른 포맷의 데이터
-          파일을 실시간으로 수집하고, 이를 표준화된 형식으로 파싱하여 외부
-          서버로 전송하는 데이터 수집 프로그램을 개발했습니다.
+          <strong>담당 업무</strong><br />
+          삼성전자 온양사업장 장비 데이터 수집 시스템에서
+          <strong>PC Agent 부분 개발을 전담</strong>했습니다. 제조사가 다른 여러
+          반도체 장비에서 생성되는 각기 다른 포맷의 데이터 파일을 실시간으로
+          수집하고, 이를 표준화된 형식으로 파싱하여 외부 서버로 전송하는 데이터
+          수집 프로그램을 개발했습니다.
         </div>
 
-        <h4>주요 역할 및 성과</h4>
+        <h4>주요 업무 및 성과</h4>
         <ul>
           <li>
-            <strong>확장성과 안정성을 모두 고려한 데이터 파이프라인 설계</strong
-            ><br />
-            다양한 비표준 데이터 포맷에 유연하게 대응하기 위해,
+            <strong>확장 가능한 데이터 파이프라인 아키텍처 설계</strong><br />
+            다양한 비표준 데이터 포맷에 유연하게 대응하기 위해
             <strong
               >소스 코드 수정 없이 프로퍼티 설정만으로 새로운 데이터 형식을
               추가</strong
             >할 수 있는 파서 구조를 설계했습니다.<br />
-            또한, 단순 원시 타입(String) 대신
-            <strong
-              >각 데이터의 의미를 명확히 하는 도메인 타입별 클래스를
-              도입</strong
-            >하여 데이터 유효성을 컴파일 시점부터 보장하고, 휴먼 에러의 가능성을
-            원천적으로 차단하여 시스템 안정성을 높였습니다.
+            또한 단순 원시 타입(String) 대신
+            <strong>도메인 타입별 클래스를 도입</strong>하여 데이터 유효성을
+            컴파일 시점부터 보장하고,
+            <strong>휴먼 에러를 원천적으로 차단</strong>하여 시스템 안정성을
+            크게 향상시켰습니다.
           </li>
           <li>
-            <strong
-              ><code>Spring Integration</code> 기반의 데이터 처리 프로세스
-              자동화</strong
+            <strong>Spring Integration 기반 데이터 처리 프로세스 자동화</strong
             ><br />
-            <code>Spring Integration</code>을 활용하여
             <strong
-              >파일 시스템 모니터링부터 파싱, 표준화, 유효성 검증,
-              <code>JSON</code> 직렬화, 외부 서버 전송으로 이어지는 전체
-              파이프라인을 구축</strong
-            >했습니다.<br />
-            이를 통해 신규 파일 발생 시 모든 데이터 처리 과정이 이벤트 기반으로
-            자동 수행되도록 하여 안정적인 데이터 수집 체계를 마련했습니다.
+              >Spring Integration을 활용하여 파일 시스템 모니터링부터 파싱,
+              표준화, 유효성 검증, JSON 직렬화, 외부 서버 전송</strong
+            >으로 이어지는 전체 파이프라인을 구축했습니다.<br />
+            신규 파일 발생 시 모든 데이터 처리 과정이 이벤트 기반으로 자동
+            수행되도록 하여
+            <strong>안정적인 데이터 수집 체계를 구축</strong>했습니다.
           </li>
           <li>
-            <strong>운영 편의성 극대화를 위한 자동화 기능 구현</strong><br />
+            <strong>운영 효율성 극대화를 위한 자동화 기능 구현</strong><br />
             장기적인 운영 관점에서 디스크 사용량과 같은 잠재적 문제를 사전에
-            방지하고자 했습니다.<br />
-            처리 결과(성공/실패)에 따른
-            <strong>파일 자동 분류</strong> 및 오래된 파일을
-            <strong>주기적으로 삭제하는 롤링 정책을 적용</strong>했습니다.<br />
-            이 모든 작업을 <code>Windows Task Scheduler</code>에
+            방지하기 위해
+            <strong>처리 결과에 따른 파일 자동 분류 및 롤링 정책</strong>을
+            적용했습니다.<br />
             <strong
-              >자동으로 등록/제거하는 <code>Batch</code> 스크립트를 작성</strong
-            >하여 운영 리소스를 최소화했습니다.
+              >Windows Task Scheduler에 자동으로 등록/제거하는 Batch
+              스크립트</strong
+            >를 작성하여 운영 리소스를 최소화하고
+            <strong>자동화된 운영 체계를 구축</strong>했습니다.
           </li>
           <li>
-            <strong>사용자 편의 중심의 패키징 자동화</strong><br />
-            <code>Gradle</code>과 <code>NSIS</code> 스크립트를 연동하여
+            <strong>사용자 편의성 극대화를 위한 패키징 자동화</strong><br />
             <strong
-              >버전 정보를 자동 추적하고 원클릭으로 Installer를 생성하는 패키징
-              자동화 환경을 구축</strong
-            >했습니다.<br />
-            패키징 시 <strong><code>JRE</code>를 내장</strong>하여 사용자 PC의
-            환경 종속성을 제거하고, 주요 설정을 외부 파일로 분리하여
-            <strong>재컴파일 없이 설정을 변경</strong>할 수 있도록 구현함으로써
+              >Gradle과 NSIS 스크립트를 연동하여 버전 정보 자동 추적 및 원클릭
+              Installer 생성</strong
+            >
+            환경을 구축했습니다.<br />
+            <strong>JRE를 내장하여 사용자 PC의 환경 종속성을 제거</strong>하고,
+            주요 설정을 외부 파일로 분리하여
+            <strong>재컴파일 없이 설정 변경이 가능</strong>하도록 구현하여
             사용자 편의성을 크게 향상시켰습니다.
           </li>
         </ul>
