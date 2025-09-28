@@ -333,33 +333,6 @@
 
       <div class="section-divider"></div>
 
-      <!-- 핵심 기술 키워드 -->
-      <section class="section-card">
-        <h2 class="text-3xl font-bold mb-6 flex items-center">
-          <i data-lucide="cpu" class="feature-icon mr-3"></i>
-          핵심 기술 키워드
-        </h2>
-        <div class="flex flex-wrap gap-4">
-          <span class="tech-badge">MSA(마이크로서비스)</span>
-          <span class="tech-badge">Database-per-service</span>
-          <span class="tech-badge">Nginx API Gateway</span>
-          <span class="tech-badge">Reverse Proxy</span>
-          <span class="tech-badge">SSL Termination</span>
-          <span class="tech-badge">WebSocket</span>
-          <span class="tech-badge">Django Channels</span>
-          <span class="tech-badge">ASGI/WSGI</span>
-          <span class="tech-badge">Redis Channel Layer</span>
-          <span class="tech-badge">JWT 인증/인가</span>
-          <span class="tech-badge">Access/Refresh Token</span>
-          <span class="tech-badge">커스텀 미들웨어</span>
-          <span class="tech-badge">RESTful API</span>
-          <span class="tech-badge">Docker</span>
-          <span class="tech-badge">docker-compose</span>
-        </div>
-      </section>
-
-      <div class="section-divider"></div>
-
       <!-- 시스템 아키텍처 -->
       <section class="section-card">
         <h2 class="text-3xl font-bold mb-6 flex items-center">
@@ -518,7 +491,7 @@
                 <i data-lucide="alert-triangle" class="w-4 h-4 mr-2"></i>
                 문제 정의
               </h4>
-              <p class="text-red-800 dark:text-red-200">
+              <p>
                 초기 설계 단계에서
                 <span class="tech-emphasis">트래픽이 서비스 간에 전이</span>될
                 위험과 작은 변경이
@@ -537,7 +510,7 @@
                 <i data-lucide="check-circle" class="w-4 h-4 mr-2"></i>
                 의사결정 및 고려
               </h4>
-              <p class="text-green-800 dark:text-green-200">
+              <p>
                 <span class="tech-emphasis">모놀리식</span> 대비
                 <span class="tech-emphasis">변경 독립성</span>과
                 <span class="tech-emphasis">예상 트래픽 기준 도메인 분리</span
@@ -613,7 +586,7 @@
                 <i data-lucide="alert-triangle" class="w-4 h-4 mr-2"></i>
                 문제 정의
               </h4>
-              <p class="text-red-800 dark:text-red-200">
+              <p>
                 실시간 게임 특성상
                 <span class="tech-emphasis">폴링 기반 접근</span>은
                 <span class="tech-emphasis">체감 지연</span>과
@@ -632,7 +605,7 @@
                 <i data-lucide="check-circle" class="w-4 h-4 mr-2"></i>
                 의사결정 및 고려
               </h4>
-              <p class="text-green-800 dark:text-green-200">
+              <p>
                 폴링 대비 지연 시간과 서버 부하를 고려해
                 <span class="tech-emphasis">WebSocket</span>을 채택했습니다.
                 인스턴스 스케일아웃 시 연결 일관성을 보장하기 위해
@@ -698,7 +671,7 @@
                 <i data-lucide="alert-triangle" class="w-4 h-4 mr-2"></i>
                 문제 정의
               </h4>
-              <p class="text-red-800 dark:text-red-200">
+              <p>
                 <span class="tech-emphasis">마이크로서비스</span>로 확장될수록
                 <span class="tech-emphasis">서비스별 인증 구현</span>이 분산되어
                 <span class="tech-emphasis">정책 불일치</span>와
@@ -716,7 +689,7 @@
                 <i data-lucide="check-circle" class="w-4 h-4 mr-2"></i>
                 의사결정 및 고려
               </h4>
-              <p class="text-green-800 dark:text-green-200">
+              <p>
                 인증 로직의 중복과 정책 불일치를 방지하기 위해
                 <span class="tech-emphasis">단일 진실 공급원(User 서비스)</span
                 >과 <span class="tech-emphasis">토큰 기반 전달</span>을
@@ -780,7 +753,7 @@
                 <i data-lucide="alert-triangle" class="w-4 h-4 mr-2"></i>
                 문제 정의
               </h4>
-              <p class="text-red-800 dark:text-red-200">
+              <p>
                 <span class="tech-emphasis">클라이언트</span>가
                 <span class="tech-emphasis">다수의 엔드포인트</span>를 관리하게
                 될 가능성과
@@ -800,7 +773,7 @@
                 <i data-lucide="check-circle" class="w-4 h-4 mr-2"></i>
                 의사결정 및 고려
               </h4>
-              <p class="text-green-800 dark:text-green-200">
+              <p>
                 별도 상용/오픈소스 게이트웨이 도입 대비
                 <span class="tech-emphasis">운영 복잡도</span>와
                 <span class="tech-emphasis">성능</span>을 고려해
