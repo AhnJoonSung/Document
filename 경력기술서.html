@@ -487,6 +487,7 @@
             <span class="badge">Next.js</span>
             <span class="badge">React</span>
             <span class="badge">MyBatis</span>
+            <span class="badge">Gradle</span>
             <span class="badge">Linux</span>
             <span class="badge">SVN</span>
             <span class="badge">NSIS</span>
@@ -499,16 +500,12 @@
         <p>
           저는 Spring Boot, RDBMS, Next.js 기술 스택을 기반으로
           <strong
-            >나노종합기술원 및 삼성전자 반도체 공장의 데이터 수집·관리 시스템
-            핵심 모듈을 개발</strong
-          >한 경험이 있습니다. 이 과정에서 데이터 무결성과 안정성 확보부터
-          비동기 아키텍처 설계, 대용량 데이터 처리, 배포 자동화, 시큐어 코딩에
-          이르기까지 소프트웨어 개발의 전반적인 사이클을 주도했습니다. 단순 기능
-          구현을 넘어,
-          <strong
-            >안정적이고 확장 가능한 시스템을 구축하여 비즈니스 연속성에
-            기여</strong
-          >하며 상용 소프트웨어를 성공적으로 개발하고 운영한 경험을 쌓았습니다.
+            >나노종합기술원 및 삼성전자 반도체 공장에서 실시간으로 발생하는
+            데이터를 수집·관리하는 시스템의 핵심 모듈을 개발</strong
+          >한 경험이 있습니다.<br />
+          이 과정에서 데이터 무결성과 안정성 확보부터 비동기 아키텍처 설계,
+          대용량 데이터 처리, 배포 자동화, 시큐어 코딩에 이르기까지 상용
+          소프트웨어 개발 및 운영의 전체 사이클을 경험했습니다.
         </p>
       </div>
 
@@ -547,8 +544,9 @@
             위해
             <strong
               >비동기 Webhook 아키텍처를 직접 설계하고 제안하여 도입</strong
-            >했습니다. 이로써 Agent는 요청 수신 즉시 응답하고 별도 스레드에서
-            전송을 처리하게 하여
+            >했습니다.<br />
+            이로써 Agent는 요청 수신 즉시 응답하고 별도 스레드에서 전송을
+            처리하게 하여
             <strong>클라이언트의 대기 시간을 최소화</strong>하고, 시스템 전체의
             처리 효율성과 안정성을 크게 향상시켰습니다.
           </li>
@@ -561,18 +559,15 @@
             신뢰성을 최우선 목표로 삼았습니다.
             <ul>
               <li>
-                전송 완료 후 <strong>원격/로컬 파일의 체크섬 비교</strong> 및
-                미지원 환경을 위한
-                <strong>파일 크기 기반의 Fallback 검증 로직</strong>을 구현하여
-                데이터 무결성을 100% 보장했습니다.
+                전송 완료 후
+                <strong>원격/로컬 파일의 체크섬 비교</strong> 및 미지원 환경을
+                위한 <strong>파일 크기 기반의 Fallback 검증 로직</strong>을
+                구현하여 데이터 무결성을 100% 보장했습니다.
               </li>
               <li>
-                네트워크 일시 오류에 대응하기 위해
+                일시적인 네트워크 오류 등 극복 가능한 오류에 대응하기 위해
                 <strong>설정 기반의 재시도 메커니즘</strong>을 적용하고, 실패 시
-                <strong
-                  >보상 로직(Compensation Logic)을 통해 데이터 정합성을
-                  확보</strong
-                >했습니다.
+                <strong>보상 로직을 통해 데이터 정합성을 확보</strong>했습니다.
               </li>
             </ul>
           </li>
@@ -581,21 +576,23 @@
             <ul>
               <li>
                 <strong>체계적인 예외 처리 및 로깅 시스템 구축:</strong>
+                <br />
                 <code>Spring AOP</code>를 활용한
-                <strong
-                  >Global Exception Handler를 구축하여 예외를 일괄 처리</strong
+                <strong>Global Exception Handler를 통해 예외를 일괄 처리</strong
                 >하고, 비즈니스 예외를 계층화하여 코드 가독성과 유지보수성을
-                높였습니다. 또한, Filter와 로그 설정을 통해
+                높였습니다.<br />
+                또한, Filter와 로그 설정을 통해
                 <strong>패키지별·레벨별 로그를 분리</strong>하여, 문제 발생 시
                 필요한 로그만 빠르게 필터링하여 확인할 수 있도록 구현함으로써
                 <strong>디버깅 편의성을 극대화</strong>했습니다.
               </li>
               <li>
-                <strong>단위 및 통합 테스트 코드 작성:</strong> 핵심 비즈니스
-                로직에 대한 테스트 코드를 작성하여,
+                <strong>단위 및 통합 테스트 코드 작성:</strong>
+                <br />
+                핵심 비즈니스 로직에 대한 테스트 코드를 작성하여,
                 <strong
-                  >코드 변경 시 발생할 수 있는 잠재적 버그(Regression)를 빌드
-                  단계에서 빠르게 식별</strong
+                  >코드 변경 시 발생할 수 있는 잠재적 버그를 빌드 단계에서
+                  빠르게 식별</strong
                 >하고 수정할 수 있는 체계를 마련하여 시스템의 안정성을
                 높였습니다.
               </li>
@@ -606,8 +603,9 @@
             ><br />
             수십만 건 이상의 데이터 조회를 대비하여
             <strong>서버 사이드 페이지네이션과 무한 스크롤을 적용</strong
-            >했습니다. <code>Tanstack Query</code>를 활용하여 데이터 캐싱 및
-            상태 관리를 효율화함으로써, 사용자가
+            >했습니다.<br />
+            <code>Tanstack Query</code>를 활용하여 데이터 캐싱 및 상태 관리를
+            효율화함으로써, 사용자가
             <strong>새로고침 없이 실시간으로 데이터를 확인</strong>할 수 있는
             반응형 UI를 구현했습니다.
           </li>
@@ -616,8 +614,7 @@
             <ul>
               <li>
                 <code>tcpdump</code> 패킷 분석과 테스트 환경 재현을 통해 원인
-                불명의 전송 실패 이슈의 근본 원인을 규명하고 해결하여 고객의
-                신뢰를 얻었습니다.
+                불명의 전송 실패 이슈의 근본 원인을 규명하고 해결하였습니다.
               </li>
               <li>
                 격리된 내부망 환경을 고려하여 의존성을 포함한 패키징을 진행하고,
@@ -644,6 +641,7 @@
           <span class="badge">Spring Integration</span>
           <span class="badge">NSIS</span>
           <span class="badge">Gradle</span>
+          <span class="badge">Batch</span>
           <span class="badge">Windows Task Scheduler</span>
         </div>
 
@@ -663,8 +661,8 @@
             <strong
               >소스 코드 수정 없이 프로퍼티 설정만으로 새로운 데이터 형식을
               추가</strong
-            >할 수 있는 파서(Parser) 구조를 설계했습니다. 또한, 단순 원시
-            타입(Primitive Type) 대신
+            >할 수 있는 파서 구조를 설계했습니다.<br />
+            또한, 단순 원시 타입(String) 대신
             <strong
               >각 데이터의 의미를 명확히 하는 도메인 타입별 클래스를
               도입</strong
@@ -681,17 +679,18 @@
               >파일 시스템 모니터링부터 파싱, 표준화, 유효성 검증,
               <code>JSON</code> 직렬화, 외부 서버 전송으로 이어지는 전체
               파이프라인을 구축</strong
-            >했습니다. 이를 통해 신규 파일 발생 시 모든 데이터 처리 과정이
-            이벤트 기반으로 자동 수행되도록 하여 안정적인 데이터 수집 체계를
-            마련했습니다.
+            >했습니다.<br />
+            이를 통해 신규 파일 발생 시 모든 데이터 처리 과정이 이벤트 기반으로
+            자동 수행되도록 하여 안정적인 데이터 수집 체계를 마련했습니다.
           </li>
           <li>
             <strong>운영 편의성 극대화를 위한 자동화 기능 구현</strong><br />
             장기적인 운영 관점에서 디스크 사용량과 같은 잠재적 문제를 사전에
-            방지하고자 했습니다. 처리 결과(성공/실패)에 따른
+            방지하고자 했습니다.<br />
+            처리 결과(성공/실패)에 따른
             <strong>파일 자동 분류</strong> 및 오래된 파일을
-            <strong>주기적으로 삭제하는 롤링 정책을 적용</strong>했습니다. 이
-            모든 작업을 <code>Windows Task Scheduler</code>에
+            <strong>주기적으로 삭제하는 롤링 정책을 적용</strong>했습니다.<br />
+            이 모든 작업을 <code>Windows Task Scheduler</code>에
             <strong
               >자동으로 등록/제거하는 <code>Batch</code> 스크립트를 작성</strong
             >하여 운영 리소스를 최소화했습니다.
@@ -702,8 +701,9 @@
             <strong
               >버전 정보를 자동 추적하고 원클릭으로 Installer를 생성하는 패키징
               자동화 환경을 구축</strong
-            >했습니다. 패키징 시 <strong><code>JRE</code>를 내장</strong>하여
-            사용자 PC의 환경 종속성을 제거하고, 주요 설정을 외부 파일로 분리하여
+            >했습니다.<br />
+            패키징 시 <strong><code>JRE</code>를 내장</strong>하여 사용자 PC의
+            환경 종속성을 제거하고, 주요 설정을 외부 파일로 분리하여
             <strong>재컴파일 없이 설정을 변경</strong>할 수 있도록 구현함으로써
             사용자 편의성을 크게 향상시켰습니다.
           </li>
