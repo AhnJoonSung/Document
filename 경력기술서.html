@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>경력 기술서</title>
+    <style>
+      /* CSS Variables for consistent theming */
+      :root {
+        --primary-color: #2563eb;
+        --primary-light: #3b82f6;
+        --secondary-color: #64748b;
+        --accent-color: #f59e0b;
+        --success-color: #10b981;
+        --text-primary: #1e293b;
+        --text-secondary: #64748b;
+        --text-muted: #94a3b8;
+        --bg-primary: #ffffff;
+        --bg-secondary: #f8fafc;
+        --bg-accent: #f1f5f9;
+        --border-color: #e2e8f0;
+        --border-light: #f1f5f9;
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+          0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+          0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --radius-sm: 0.375rem;
+        --radius-md: 0.5rem;
+        --radius-lg: 0.75rem;
+        --radius-xl: 1rem;
+        --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+          "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas,
+          "Liberation Mono", Menlo, monospace;
+      }
+
+      /* Dark mode support */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --primary-color: #3b82f6;
+          --primary-light: #60a5fa;
+          --secondary-color: #94a3b8;
+          --text-primary: #f1f5f9;
+          --text-secondary: #cbd5e1;
+          --text-muted: #64748b;
+          --bg-primary: #0f172a;
+          --bg-secondary: #1e293b;
+          --bg-accent: #334155;
+          --border-color: #334155;
+          --border-light: #475569;
+        }
+      }
+
+      /* Base */
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg-primary);
+        transition: background-color 0.3s ease;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        color: var(--text-primary);
+        line-height: 1.7;
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+        background: var(--bg-primary);
+      }
+
+      /* Header Section */
+      .header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--primary-light) 100%
+        );
+        color: white;
+        margin: -2rem -1.5rem 2rem -1.5rem;
+        padding: 3rem 1.5rem;
+        border-radius: 0 0 2rem 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        opacity: 0.3;
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin: 0 0 1rem 0;
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .company-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+      }
+
+      h2 {
+        font-size: 1.75rem;
+        margin: 0;
+        font-weight: 600;
+      }
+
+      .period {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: var(--radius-xl);
+        font-weight: 500;
+        font-size: 0.9rem;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .tech-preview {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .tech-preview .badge {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+      }
+
+      .summary {
+        background: var(--bg-secondary);
+        padding: 1.5rem;
+        border-radius: var(--radius-lg);
+        margin: 2rem 0;
+        border-left: 4px solid var(--primary-color);
+        box-shadow: var(--shadow-sm);
+        position: relative;
+      }
+
+      .summary::before {
+        content: "💼";
+        position: absolute;
+        top: 1.5rem;
+        left: -2px;
+        background: var(--primary-color);
+        color: white;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+      }
+
+      .summary p {
+        margin: 0;
+        padding-left: 2rem;
+        color: var(--text-primary);
+        line-height: 1.8;
+      }
+
+      /* Project Sections */
+      .project {
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        padding: 2rem;
+        margin: 2rem 0;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(
+          180deg,
+          var(--primary-color) 0%,
+          var(--accent-color) 100%
+        );
+      }
+
+      .project:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-2px);
+      }
+
+      .project-number {
+        background: var(--primary-color);
+        color: white;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 0.875rem;
+        margin-right: 1rem;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        margin: 0 0 1rem 0;
+        font-weight: 600;
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+      }
+
+      h4 {
+        font-size: 1.125rem;
+        margin: 1.5rem 0 0.75rem 0;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      /* Tech Stack */
+      .tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 1rem 0 1.5rem 0;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        background: var(--bg-accent);
+        color: var(--text-primary);
+        border: 1px solid var(--border-color);
+        padding: 0.375rem 0.75rem;
+        border-radius: var(--radius-xl);
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        text-decoration: none;
+      }
+
+      .badge:hover {
+        background: var(--primary-color);
+        color: white;
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .badge:nth-child(odd) {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--primary-light)
+        );
+        color: white;
+      }
+
+      /* Content Sections */
+      .project-overview {
+        background: var(--bg-secondary);
+        padding: 1.25rem;
+        border-radius: var(--radius-md);
+        margin: 1.5rem 0;
+        border-left: 3px solid var(--success-color);
+      }
+
+      .project-overview strong {
+        color: var(--success-color);
+        font-weight: 600;
+      }
+
+      /* Lists */
+      ul {
+        margin: 1rem 0;
+        padding-left: 0;
+        list-style: none;
+      }
+
+      li {
+        margin: 0.75rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+        line-height: 1.7;
+      }
+
+      li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: var(--primary-color);
+        font-weight: bold;
+      }
+
+      li strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      ul ul {
+        margin: 0.5rem 0;
+        padding-left: 1rem;
+      }
+
+      ul ul li::before {
+        content: "•";
+        color: var(--accent-color);
+      }
+
+      /* Code */
+      code {
+        font-family: var(--font-mono);
+        background: var(--bg-accent);
+        color: var(--primary-color);
+        border: 1px solid var(--border-color);
+        padding: 0.125rem 0.375rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.875em;
+        font-weight: 500;
+      }
+
+      /* Divider */
+      hr {
+        border: none;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--border-color),
+          transparent
+        );
+        margin: 3rem 0;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        .header {
+          margin: -1rem -1rem 1.5rem -1rem;
+          padding: 2rem 1rem;
+          border-radius: 0 0 1rem 1rem;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+        }
+
+        .company-info {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.75rem;
+        }
+
+        .project {
+          padding: 1.5rem;
+        }
+
+        h3 {
+          font-size: 1.25rem;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .project-number {
+          margin-bottom: 0.5rem;
+        }
+      }
+
+      /* Print Styles */
+      @media print {
+        .container {
+          max-width: none;
+          padding: 0;
+        }
+
+        .header {
+          background: var(--primary-color) !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        .project {
+          break-inside: avoid;
+          box-shadow: none;
+          border: 1px solid #ccc;
+        }
+
+        .badge {
+          border: 1px solid #ccc;
+          background: #f5f5f5 !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+      }
+
+      /* Animation */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .project {
+        animation: fadeInUp 0.6s ease-out;
+      }
+
+      .project:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .project:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <!-- Header Section -->
+      <header class="header">
+        <div class="header-content">
+          <h1>경력 기술서</h1>
+          <div class="company-info">
+            <h2>Drimsys</h2>
+            <span class="period">2025.03.24 ~ 재직중</span>
+          </div>
+          <div class="tech-preview">
+            <span class="badge">Spring Boot</span>
+            <span class="badge">RDBMS</span>
+            <span class="badge">NoSQL</span>
+            <span class="badge">Next.js</span>
+            <span class="badge">React</span>
+            <span class="badge">MyBatis</span>
+            <span class="badge">Linux</span>
+            <span class="badge">SVN</span>
+            <span class="badge">NSIS</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Professional Summary -->
+      <div class="summary">
+        <p>
+          저는 Spring Boot, RDBMS, Next.js 기술 스택을 기반으로
+          <strong
+            >나노종합기술원 및 삼성전자 반도체 공장의 데이터 수집·관리 시스템
+            핵심 모듈을 개발</strong
+          >한 경험이 있습니다. 이 과정에서 데이터 무결성과 안정성 확보부터
+          비동기 아키텍처 설계, 대용량 데이터 처리, 배포 자동화, 시큐어 코딩에
+          이르기까지 소프트웨어 개발의 전반적인 사이클을 주도했습니다. 단순 기능
+          구현을 넘어,
+          <strong
+            >안정적이고 확장 가능한 시스템을 구축하여 비즈니스 연속성에
+            기여</strong
+          >하며 상용 소프트웨어를 성공적으로 개발하고 운영한 경험을 쌓았습니다.
+        </p>
+      </div>
+
+      <!-- Project 1 -->
+      <article class="project">
+        <h3>
+          <span class="project-number">1</span>
+          카이스트 나노종합기술원 - File Browsing System (FBS) 개발
+        </h3>
+
+        <div class="tech">
+          <span class="badge">Spring Boot</span>
+          <span class="badge">JSch</span>
+          <span class="badge">Next.js</span>
+          <span class="badge">React</span>
+          <span class="badge">MyBatis</span>
+          <span class="badge">MariaDB</span>
+          <span class="badge">JUnit</span>
+        </div>
+
+        <div class="project-overview">
+          <strong>프로젝트 개요</strong><br />
+          반도체 공정 장비에서 실시간으로 발생하는 대용량 데이터 파일을 외부
+          서버로 안정적으로 전송하고, 수집된 메타데이터를 웹 UI를 통해
+          효율적으로 관리하는 시스템을 개발했습니다.
+        </div>
+
+        <h4>주요 역할 및 성과</h4>
+        <ul>
+          <li>
+            <strong
+              >비동기 아키텍처 설계로 시스템 응답성 및 처리 효율 개선</strong
+            ><br />
+            기존 클라이언트가 파일 전송 완료까지 대기해야 하는 동기 방식의
+            문제점(구현 복잡성, 스레드 고갈, 타임아웃)을 분석, 이를 해결하기
+            위해
+            <strong
+              >비동기 Webhook 아키텍처를 직접 설계하고 제안하여 도입</strong
+            >했습니다. 이로써 Agent는 요청 수신 즉시 응답하고 별도 스레드에서
+            전송을 처리하게 하여
+            <strong>클라이언트의 대기 시간을 최소화</strong>하고, 시스템 전체의
+            처리 효율성과 안정성을 크게 향상시켰습니다.
+          </li>
+          <li>
+            <strong
+              >다층적 방어 로직 구현으로 데이터 무결성 및 시스템 안정성
+              확보</strong
+            ><br />
+            반도체 공정 데이터는 단 하나의 유실도 허용되지 않기에, 시스템의
+            신뢰성을 최우선 목표로 삼았습니다.
+            <ul>
+              <li>
+                전송 완료 후 <strong>원격/로컬 파일의 체크섬 비교</strong> 및
+                미지원 환경을 위한
+                <strong>파일 크기 기반의 Fallback 검증 로직</strong>을 구현하여
+                데이터 무결성을 100% 보장했습니다.
+              </li>
+              <li>
+                네트워크 일시 오류에 대응하기 위해
+                <strong>설정 기반의 재시도 메커니즘</strong>을 적용하고, 실패 시
+                <strong
+                  >보상 로직(Compensation Logic)을 통해 데이터 정합성을
+                  확보</strong
+                >했습니다.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>코드 품질 및 유지보수성 향상을 위한 체계 구축</strong>
+            <ul>
+              <li>
+                <strong>체계적인 예외 처리 및 로깅 시스템 구축:</strong>
+                <code>Spring AOP</code>를 활용한
+                <strong
+                  >Global Exception Handler를 구축하여 예외를 일괄 처리</strong
+                >하고, 비즈니스 예외를 계층화하여 코드 가독성과 유지보수성을
+                높였습니다. 또한, Filter와 로그 설정을 통해
+                <strong>패키지별·레벨별 로그를 분리</strong>하여, 문제 발생 시
+                필요한 로그만 빠르게 필터링하여 확인할 수 있도록 구현함으로써
+                <strong>디버깅 편의성을 극대화</strong>했습니다.
+              </li>
+              <li>
+                <strong>단위 및 통합 테스트 코드 작성:</strong> 핵심 비즈니스
+                로직에 대한 테스트 코드를 작성하여,
+                <strong
+                  >코드 변경 시 발생할 수 있는 잠재적 버그(Regression)를 빌드
+                  단계에서 빠르게 식별</strong
+                >하고 수정할 수 있는 체계를 마련하여 시스템의 안정성을
+                높였습니다.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>대용량 데이터 조회 성능 최적화 및 사용자 경험 향상</strong
+            ><br />
+            수십만 건 이상의 데이터 조회를 대비하여
+            <strong>서버 사이드 페이지네이션과 무한 스크롤을 적용</strong
+            >했습니다. <code>Tanstack Query</code>를 활용하여 데이터 캐싱 및
+            상태 관리를 효율화함으로써, 사용자가
+            <strong>새로고침 없이 실시간으로 데이터를 확인</strong>할 수 있는
+            반응형 UI를 구현했습니다.
+          </li>
+          <li>
+            <strong>운영 효율화를 위한 배포 자동화 및 문제 해결</strong>
+            <ul>
+              <li>
+                <code>tcpdump</code> 패킷 분석과 테스트 환경 재현을 통해 원인
+                불명의 전송 실패 이슈의 근본 원인을 규명하고 해결하여 고객의
+                신뢰를 얻었습니다.
+              </li>
+              <li>
+                격리된 내부망 환경을 고려하여 의존성을 포함한 패키징을 진행하고,
+                <strong
+                  >배포·패치·실행을 자동화하는 <code>Shell Script</code>와
+                  <code>Batch</code>를 작성</strong
+                >하여 수동 배포로 인한 휴먼 에러를 방지하고 운영 편의성을
+                높였습니다.
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project">
+        <h3>
+          <span class="project-number">2</span>
+          삼성전자 온양사업장 - 반도체 장비 데이터 수집 및 전송 프로그램 개발
+        </h3>
+
+        <div class="tech">
+          <span class="badge">Spring Boot</span>
+          <span class="badge">Spring Integration</span>
+          <span class="badge">NSIS</span>
+          <span class="badge">Gradle</span>
+          <span class="badge">Windows Task Scheduler</span>
+        </div>
+
+        <div class="project-overview">
+          <strong>프로젝트 개요</strong><br />
+          제조사가 다른 여러 반도체 장비에서 생성되는 각기 다른 포맷의 데이터
+          파일을 실시간으로 수집하고, 이를 표준화된 형식으로 파싱하여 외부
+          서버로 전송하는 데이터 수집 프로그램을 개발했습니다.
+        </div>
+
+        <h4>주요 역할 및 성과</h4>
+        <ul>
+          <li>
+            <strong>확장성과 안정성을 모두 고려한 데이터 파이프라인 설계</strong
+            ><br />
+            다양한 비표준 데이터 포맷에 유연하게 대응하기 위해,
+            <strong
+              >소스 코드 수정 없이 프로퍼티 설정만으로 새로운 데이터 형식을
+              추가</strong
+            >할 수 있는 파서(Parser) 구조를 설계했습니다. 또한, 단순 원시
+            타입(Primitive Type) 대신
+            <strong
+              >각 데이터의 의미를 명확히 하는 도메인 타입별 클래스를
+              도입</strong
+            >하여 데이터 유효성을 컴파일 시점부터 보장하고, 휴먼 에러의 가능성을
+            원천적으로 차단하여 시스템 안정성을 높였습니다.
+          </li>
+          <li>
+            <strong
+              ><code>Spring Integration</code> 기반의 데이터 처리 프로세스
+              자동화</strong
+            ><br />
+            <code>Spring Integration</code>을 활용하여
+            <strong
+              >파일 시스템 모니터링부터 파싱, 표준화, 유효성 검증,
+              <code>JSON</code> 직렬화, 외부 서버 전송으로 이어지는 전체
+              파이프라인을 구축</strong
+            >했습니다. 이를 통해 신규 파일 발생 시 모든 데이터 처리 과정이
+            이벤트 기반으로 자동 수행되도록 하여 안정적인 데이터 수집 체계를
+            마련했습니다.
+          </li>
+          <li>
+            <strong>운영 편의성 극대화를 위한 자동화 기능 구현</strong><br />
+            장기적인 운영 관점에서 디스크 사용량과 같은 잠재적 문제를 사전에
+            방지하고자 했습니다. 처리 결과(성공/실패)에 따른
+            <strong>파일 자동 분류</strong> 및 오래된 파일을
+            <strong>주기적으로 삭제하는 롤링 정책을 적용</strong>했습니다. 이
+            모든 작업을 <code>Windows Task Scheduler</code>에
+            <strong
+              >자동으로 등록/제거하는 <code>Batch</code> 스크립트를 작성</strong
+            >하여 운영 리소스를 최소화했습니다.
+          </li>
+          <li>
+            <strong>사용자 편의 중심의 패키징 자동화</strong><br />
+            <code>Gradle</code>과 <code>NSIS</code> 스크립트를 연동하여
+            <strong
+              >버전 정보를 자동 추적하고 원클릭으로 Installer를 생성하는 패키징
+              자동화 환경을 구축</strong
+            >했습니다. 패키징 시 <strong><code>JRE</code>를 내장</strong>하여
+            사용자 PC의 환경 종속성을 제거하고, 주요 설정을 외부 파일로 분리하여
+            <strong>재컴파일 없이 설정을 변경</strong>할 수 있도록 구현함으로써
+            사용자 편의성을 크게 향상시켰습니다.
+          </li>
+        </ul>
+      </article>
+    </main>
+  </body>
+</html>
