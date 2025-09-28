@@ -105,45 +105,163 @@
       }
 
       .tech-badge {
-        @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-blue-100 to-blue-200 text-blue-800 dark:from-blue-900 dark:to-blue-800 dark:text-blue-100 shadow-sm hover:shadow-md transition-shadow duration-200;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: bold;
+        background: linear-gradient(to right, #dbeafe, #bfdbfe);
+        color: #1e40af;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        transform: scale(1);
+      }
+
+      .tech-badge:hover {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        transform: scale(1.05);
+      }
+
+      .dark .tech-badge {
+        background: linear-gradient(to right, #1e3a8a, #1e40af);
+        color: #dbeafe;
       }
 
       .section-card {
-        @apply bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 p-8 mb-12;
+        background-color: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e5e7eb;
+        padding: 2rem;
+        margin-bottom: 0rem;
+      }
+
+      .dark .section-card {
+        background-color: #1f2937;
+        border-color: #374151;
       }
 
       .section-divider {
-        @apply border-t border-gray-200 dark:border-gray-700 my-8;
+        border-top: 1px solid #e5e7eb;
+        margin: 2rem 0;
+      }
+
+      .dark .section-divider {
+        border-color: #374151;
       }
 
       .feature-icon {
-        @apply w-8 h-8 text-blue-600 dark:text-blue-400;
+        width: 2rem;
+        height: 2rem;
+        color: #2563eb;
+      }
+
+      .dark .feature-icon {
+        color: #60a5fa;
       }
 
       .problem-solution {
-        @apply grid md:grid-cols-2 gap-4 mb-4;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      @media (min-width: 768px) {
+        .problem-solution {
+          grid-template-columns: 1fr 1fr;
+        }
       }
 
       .problem {
-        @apply bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-6;
+        background-color: #fef2f2;
+        border: 1px solid #fecaca;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+      }
+
+      .dark .problem {
+        background-color: rgba(185, 28, 28, 0.2);
+        border-color: #991b1b;
       }
 
       .solution {
-        @apply bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6;
+        background-color: #f0fdf4;
+        border: 1px solid #bbf7d0;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+      }
+
+      .dark .solution {
+        background-color: rgba(34, 197, 94, 0.2);
+        border-color: #166534;
       }
 
       .problem h4,
       .solution h4 {
-        @apply text-base font-semibold mb-3;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
       }
 
       .problem p,
       .solution p {
-        @apply text-base leading-relaxed;
+        font-size: 1rem;
+        line-height: 1.625;
       }
 
       .achievement {
-        @apply bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4;
+        background-color: #eff6ff;
+        border: 1px solid #bfdbfe;
+        border-radius: 0.5rem;
+        padding: 1rem;
+      }
+
+      .dark .achievement {
+        background-color: rgba(30, 64, 175, 0.2);
+        border-color: #1e40af;
+      }
+
+      .keyword-highlight {
+        font-weight: bold;
+        color: #1e40af;
+      }
+
+      .dark .keyword-highlight {
+        color: #dbeafe;
+      }
+
+      .tech-stack {
+        font-weight: bold;
+        color: #166534;
+      }
+
+      .dark .tech-stack {
+        color: #d1fae5;
+      }
+
+      .tech-emphasis {
+        font-weight: bold;
+        color: #1d4ed8;
+      }
+
+      .dark .tech-emphasis {
+        color: #93c5fd;
+      }
+
+      .architecture-keyword {
+        font-weight: bold;
+        color: #7c3aed;
+      }
+
+      .dark .architecture-keyword {
+        color: #c084fc;
+        background-color: rgba(124, 58, 237, 0.2);
+        border-color: #7c3aed;
       }
     </style>
   </head>
@@ -184,27 +302,19 @@
           프로젝트 소개
         </h2>
         <p
-          class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6"
+          class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-8"
         >
           브라우저 기반 실시간 멀티플레이어 Pong 게임과 친구·채팅·토너먼트
-          기능을 제공하는 소셜 게이밍 플랫폼입니다. 마이크로서비스
-          아키텍처(MSA)를 채택하여 전체 서비스를
-          <code class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded"
-            >Frontend</code
-          >,
-          <code class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded"
-            >API Gateway</code
-          >,
-          <code class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded"
-            >User</code
-          >,
-          <code class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded"
-            >Game</code
-          >,
-          <code class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded"
-            >Chat</code
-          >
-          서비스로 분리하고, WebSocket + Redis로 저지연 상호작용을 보장합니다.
+          기능을 제공하는 소셜 게이밍 플랫폼입니다.
+          <span class="keyword-highlight">마이크로서비스 아키텍처(MSA)</span>를
+          채택하여 전체 서비스를 <span class="tech-stack">Frontend</span>,
+          <span class="tech-stack">API Gateway</span>,
+          <span class="tech-stack">User</span>,
+          <span class="tech-stack">Game</span>,
+          <span class="tech-stack">Chat</span>
+          서비스로 분리하고,
+          <span class="keyword-highlight">WebSocket + Redis</span>로 저지연
+          상호작용을 보장합니다.
         </p>
         <div
           class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4"
@@ -229,7 +339,7 @@
           <i data-lucide="cpu" class="feature-icon mr-3"></i>
           핵심 기술 키워드
         </h2>
-        <div class="flex flex-wrap gap-3">
+        <div class="flex flex-wrap gap-4">
           <span class="tech-badge">MSA(마이크로서비스)</span>
           <span class="tech-badge">Database-per-service</span>
           <span class="tech-badge">Nginx API Gateway</span>
@@ -245,6 +355,127 @@
           <span class="tech-badge">RESTful API</span>
           <span class="tech-badge">Docker</span>
           <span class="tech-badge">docker-compose</span>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- 시스템 아키텍처 -->
+      <section class="section-card">
+        <h2 class="text-3xl font-bold mb-6 flex items-center">
+          <i data-lucide="network" class="feature-icon mr-3"></i>
+          시스템 아키텍처
+        </h2>
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+          <img
+            src="https://i.ibb.co/Y7F1rmBQ/42shy-drawio.png"
+            alt="시스템 아키텍처 다이어그램"
+            class="w-full h-auto rounded-lg shadow-lg"
+            style="max-width: 100%; height: auto"
+          />
+          <p class="text-sm text-gray-600 dark:text-gray-400 mt-4 text-center">
+            마이크로서비스 아키텍처를 기반으로 한 전체 시스템 구조도
+          </p>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- GitHub Repository -->
+      <section class="section-card">
+        <h2 class="text-3xl font-bold mb-6 flex items-center">
+          <i data-lucide="github" class="feature-icon mr-3"></i>
+          GitHub Repository
+        </h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div
+            class="bg-white dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 p-6 hover:shadow-lg transition-shadow"
+          >
+            <h3 class="text-lg font-semibold mb-3 flex items-center">
+              <i data-lucide="server" class="w-5 h-5 mr-2 text-blue-600"></i>
+              API Gateway
+            </h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+              Nginx 기반 API Gateway로 서비스 라우팅, SSL Termination, WebSocket
+              프록시를 담당합니다.
+            </p>
+            <a
+              href="https://github.com/supershy42/api_gateway"
+              target="_blank"
+              class="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium"
+            >
+              <i data-lucide="external-link" class="w-4 h-4 mr-1"></i>
+              Repository 보기
+            </a>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 p-6 hover:shadow-lg transition-shadow"
+          >
+            <h3 class="text-lg font-semibold mb-3 flex items-center">
+              <i
+                data-lucide="gamepad-2"
+                class="w-5 h-5 mr-2 text-green-600"
+              ></i>
+              Game Service
+            </h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+              Django Channels와 WebSocket을 활용한 실시간 게임 로직 처리 및
+              토너먼트 관리 서비스입니다.
+            </p>
+            <a
+              href="https://github.com/supershy42/game"
+              target="_blank"
+              class="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium"
+            >
+              <i data-lucide="external-link" class="w-4 h-4 mr-1"></i>
+              Repository 보기
+            </a>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 p-6 hover:shadow-lg transition-shadow"
+          >
+            <h3 class="text-lg font-semibold mb-3 flex items-center">
+              <i
+                data-lucide="message-circle"
+                class="w-5 h-5 mr-2 text-purple-600"
+              ></i>
+              Chat Service
+            </h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+              실시간 채팅 기능과 대기방 채팅을 제공하는 WebSocket 기반 채팅
+              서비스입니다.
+            </p>
+            <a
+              href="https://github.com/supershy42/chat"
+              target="_blank"
+              class="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium"
+            >
+              <i data-lucide="external-link" class="w-4 h-4 mr-1"></i>
+              Repository 보기
+            </a>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 p-6 hover:shadow-lg transition-shadow"
+          >
+            <h3 class="text-lg font-semibold mb-3 flex items-center">
+              <i data-lucide="users" class="w-5 h-5 mr-2 text-orange-600"></i>
+              User Service
+            </h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+              JWT 기반 인증/인가와 사용자 관리를 담당하는 핵심 서비스입니다.
+            </p>
+            <a
+              href="https://github.com/supershy42/user"
+              target="_blank"
+              class="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-medium"
+            >
+              <i data-lucide="external-link" class="w-4 h-4 mr-1"></i>
+              Repository 보기
+            </a>
+          </div>
         </div>
       </section>
 
@@ -266,20 +497,16 @@
             1. 마이크로서비스 아키텍처 (MSA) 설계 및 구축
           </h3>
 
-          <div class="mb-6">
-            <h4 class="text-lg font-semibold mb-3">역할</h4>
-            <p class="text-gray-700 dark:text-gray-300 mb-4">
+          <div class="mb-8">
+            <h4 class="text-lg font-semibold mb-4">역할</h4>
+            <p class="text-gray-700 dark:text-gray-300 mb-6">
               전체 서비스 경계 정의와 아키텍처 설계를 주도했습니다.
-              <code class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded"
-                >사용자(User)</code
-              >,
-              <code class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded"
-                >게임(Game)</code
-              >,
-              <code class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded"
-                >채팅(Chat)</code
-              >의 도메인을 분리하고, 각 서비스의 독립성을 고려하여
-              Database-per-service 원칙을 적용했습니다.
+              <span class="tech-stack">사용자(User)</span>,
+              <span class="tech-stack">게임(Game)</span>,
+              <span class="tech-stack">채팅(Chat)</span>
+              의 도메인을 분리하고, 각 서비스의 독립성을 고려하여
+              <span class="keyword-highlight">Database-per-service</span> 원칙을
+              적용했습니다.
             </p>
           </div>
 
@@ -292,10 +519,15 @@
                 문제 정의
               </h4>
               <p class="text-red-800 dark:text-red-200">
-                초기 설계 단계에서 트래픽이 서비스 간에 전이될 위험과 작은
-                변경이 전체 배포로 이어질 위험을 식별했습니다. 또한 공유 DB 사용
-                시 스키마 변경 파급과 서비스별 독립 확장 한계가 발생할 수 있다고
-                판단했습니다.
+                초기 설계 단계에서
+                <span class="tech-emphasis">트래픽이 서비스 간에 전이</span>될
+                위험과 작은 변경이
+                <span class="tech-emphasis">전체 배포</span>로 이어질 위험을
+                식별했습니다. 또한
+                <span class="tech-emphasis">공유 DB 사용</span> 시
+                <span class="tech-emphasis">스키마 변경 파급</span>과
+                <span class="tech-emphasis">서비스별 독립 확장 한계</span>가
+                발생할 수 있다고 판단했습니다.
               </p>
             </div>
             <div class="solution">
@@ -306,11 +538,20 @@
                 의사결정 및 고려
               </h4>
               <p class="text-green-800 dark:text-green-200">
-                모놀리식 대비 변경 독립성과 예상 트래픽 기준 도메인 분리를
-                최우선으로 두었습니다. 서비스 간 결합도를 낮추기 위해 공유 DB를
-                지양하고, 공용 스키마 변경의 파급효과를 차단했습니다. 서비스 간
-                통신은 gRPC도 검토했으나, 팀 생산성과 디버깅 용이성, 관측성
-                확보를 이유로 표준 REST를 채택했습니다.
+                <span class="tech-emphasis">모놀리식</span> 대비
+                <span class="tech-emphasis">변경 독립성</span>과
+                <span class="tech-emphasis">예상 트래픽 기준 도메인 분리</span
+                >를 최우선으로 두었습니다.
+                <span class="tech-emphasis">서비스 간 결합도</span>를 낮추기
+                위해 <span class="tech-emphasis">공유 DB</span>를 지양하고,
+                <span class="tech-emphasis">공용 스키마 변경의 파급효과</span>를
+                차단했습니다.
+                <span class="tech-emphasis">서비스 간 통신</span>은
+                <span class="tech-emphasis">gRPC</span>도 검토했으나,
+                <span class="tech-emphasis">팀 생산성</span>과
+                <span class="tech-emphasis">디버깅 용이성</span>,
+                <span class="tech-emphasis">관측성 확보</span>를 이유로
+                <span class="tech-emphasis">표준 REST</span>를 채택했습니다.
               </p>
             </div>
           </div>
@@ -352,13 +593,15 @@
             2. WebSocket 기반 실시간 통신 시스템 구축
           </h3>
 
-          <div class="mb-6">
-            <h4 class="text-lg font-semibold mb-3">역할</h4>
-            <p class="text-gray-700 dark:text-gray-300 mb-4">
-              실시간 통신 스택을 설계·구현했습니다. Django Channels를 도입하고,
-              다중 인스턴스 환경에서의 세션 분산 문제를 해결하기 위해 Redis 기반
-              Channel Layer를 구성했으며, 게임/채팅에 필요한 이벤트 프로토콜을
-              정의했습니다.
+          <div class="mb-8">
+            <h4 class="text-lg font-semibold mb-4">역할</h4>
+            <p class="text-gray-700 dark:text-gray-300 mb-6">
+              실시간 통신 스택을 설계·구현했습니다.
+              <span class="tech-stack">Django Channels</span>를 도입하고, 다중
+              인스턴스 환경에서의 세션 분산 문제를 해결하기 위해
+              <span class="keyword-highlight">Redis 기반 Channel Layer</span>를
+              구성했으며, 게임/채팅에 필요한
+              <span class="tech-emphasis">이벤트 프로토콜</span>을 정의했습니다.
             </p>
           </div>
 
@@ -371,10 +614,15 @@
                 문제 정의
               </h4>
               <p class="text-red-800 dark:text-red-200">
-                실시간 게임 특성상 폴링 기반 접근은 체감 지연과 불필요한
-                트래픽을 유발할 가능성이 높다고 판단했습니다. 또한 수평 확장 시
-                연결 분산으로 메시지 일관성이 깨질 수 있는 리스크를 사전에
-                인지했습니다.
+                실시간 게임 특성상
+                <span class="tech-emphasis">폴링 기반 접근</span>은
+                <span class="tech-emphasis">체감 지연</span>과
+                <span class="tech-emphasis">불필요한 트래픽</span>을 유발할
+                가능성이 높다고 판단했습니다. 또한
+                <span class="tech-emphasis">수평 확장</span> 시
+                <span class="tech-emphasis">연결 분산</span>으로
+                <span class="tech-emphasis">메시지 일관성</span>이 깨질 수 있는
+                리스크를 사전에 인지했습니다.
               </p>
             </div>
             <div class="solution">
@@ -385,10 +633,15 @@
                 의사결정 및 고려
               </h4>
               <p class="text-green-800 dark:text-green-200">
-                폴링 대비 지연 시간과 서버 부하를 고려해 WebSocket을
-                채택했습니다. 인스턴스 스케일아웃 시 연결 일관성을 보장하기 위해
-                Pub/Sub 특성을 갖는 Redis를 선택했고, 이벤트 순서/유실 가능성에
-                대비한 최소한의 재전송/상태 동기 전략을 설계했습니다.
+                폴링 대비 지연 시간과 서버 부하를 고려해
+                <span class="tech-emphasis">WebSocket</span>을 채택했습니다.
+                인스턴스 스케일아웃 시 연결 일관성을 보장하기 위해
+                <span class="tech-emphasis">Pub/Sub 특성</span>을 갖는
+                <span class="tech-emphasis">Redis</span>를 선택했고,
+                <span class="tech-emphasis">이벤트 순서/유실 가능성</span>에
+                대비한 최소한의
+                <span class="tech-emphasis">재전송/상태 동기 전략</span>을
+                설계했습니다.
               </p>
             </div>
           </div>
@@ -422,18 +675,17 @@
             3. 분산 환경에서의 JWT 기반 통합 인증/인가
           </h3>
 
-          <div class="mb-6">
-            <h4 class="text-lg font-semibold mb-3">역할</h4>
-            <p class="text-gray-700 dark:text-gray-300 mb-4">
+          <div class="mb-8">
+            <h4 class="text-lg font-semibold mb-4">역할</h4>
+            <p class="text-gray-700 dark:text-gray-300 mb-6">
               인증을
-              <code class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded"
-                >User</code
-              >
-              서비스로 단일화하고 JWT 기반 토큰 체계를 설계·구현했습니다. 각
-              서비스 앞단의 커스텀 미들웨어에서 Access Token 검증 및
-              <code class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded"
-                >user_id</code
-              >
+              <span class="tech-stack">User</span>
+              서비스로 단일화하고
+              <span class="keyword-highlight">JWT 기반 토큰 체계</span>를
+              설계·구현했습니다. 각 서비스 앞단의
+              <span class="tech-emphasis">커스텀 미들웨어</span>에서
+              <span class="tech-stack">Access Token</span> 검증 및
+              <span class="tech-stack">user_id</span>
               컨텍스트 주입을 담당하도록 했습니다.
             </p>
           </div>
@@ -447,10 +699,14 @@
                 문제 정의
               </h4>
               <p class="text-red-800 dark:text-red-200">
-                마이크로서비스로 확장될수록 서비스별 인증 구현이 분산되어 정책
-                불일치와 권한 검증 중복이 발생할 위험을 확인했습니다. 인증
-                변경이 여러 저장소로 분산될 경우 수정 비용이 커질 수 있다고
-                판단했습니다.
+                <span class="tech-emphasis">마이크로서비스</span>로 확장될수록
+                <span class="tech-emphasis">서비스별 인증 구현</span>이 분산되어
+                <span class="tech-emphasis">정책 불일치</span>와
+                <span class="tech-emphasis">권한 검증 중복</span>이 발생할
+                위험을 확인했습니다.
+                <span class="tech-emphasis">인증 변경</span>이 여러 저장소로
+                분산될 경우 <span class="tech-emphasis">수정 비용</span>이 커질
+                수 있다고 판단했습니다.
               </p>
             </div>
             <div class="solution">
@@ -461,9 +717,13 @@
                 의사결정 및 고려
               </h4>
               <p class="text-green-800 dark:text-green-200">
-                인증 로직의 중복과 정책 불일치를 방지하기 위해 단일 진실
-                공급원(User 서비스)과 토큰 기반 전달을 선택했습니다. 토큰
-                만료/재발급 정책, 서비스 간 신뢰경계, 미들웨어 실패 시 폴백 전략
+                인증 로직의 중복과 정책 불일치를 방지하기 위해
+                <span class="tech-emphasis">단일 진실 공급원(User 서비스)</span
+                >과 <span class="tech-emphasis">토큰 기반 전달</span>을
+                선택했습니다.
+                <span class="tech-emphasis">토큰 만료/재발급 정책</span>,
+                <span class="tech-emphasis">서비스 간 신뢰경계</span>,
+                <span class="tech-emphasis">미들웨어 실패 시 폴백 전략</span>
                 등을 고려했습니다.
               </p>
             </div>
@@ -498,14 +758,17 @@
             4. Nginx 기반 API Gateway 구축
           </h3>
 
-          <div class="mb-6">
-            <h4 class="text-lg font-semibold mb-3">역할</h4>
-            <p class="text-gray-700 dark:text-gray-300 mb-4">
-              단일 진입점으로서 Nginx 기반 API Gateway를 설계·구성했습니다.
-              <code class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded"
-                >nginx.conf</code
-              >에 서비스별 라우팅 규칙을 정의하고, WebSocket 프록시와 SSL
-              Termination을 설정했습니다.
+          <div class="mb-8">
+            <h4 class="text-lg font-semibold mb-4">역할</h4>
+            <p class="text-gray-700 dark:text-gray-300 mb-6">
+              단일 진입점으로서
+              <span class="tech-stack">Nginx 기반 API Gateway</span>를
+              설계·구성했습니다. <span class="tech-stack">nginx.conf</span>에
+              <span class="tech-emphasis">서비스별 라우팅 규칙</span>을
+              정의하고,
+              <span class="keyword-highlight">WebSocket 프록시</span>와
+              <span class="keyword-highlight">SSL Termination</span>을
+              설정했습니다.
             </p>
           </div>
 
@@ -518,10 +781,16 @@
                 문제 정의
               </h4>
               <p class="text-red-800 dark:text-red-200">
-                클라이언트가 다수의 엔드포인트를 관리하게 될 가능성과
-                SSL·로깅·인증 같은 공통 기능이 각 서비스에 중복될 위험을 사전에
-                인지했습니다. WebSocket과 HTTP를 일원화할 단일 진입점이
-                필요하다고 판단했습니다.
+                <span class="tech-emphasis">클라이언트</span>가
+                <span class="tech-emphasis">다수의 엔드포인트</span>를 관리하게
+                될 가능성과
+                <span class="tech-emphasis">SSL·로깅·인증</span> 같은
+                <span class="tech-emphasis">공통 기능</span>이 각 서비스에
+                <span class="tech-emphasis">중복</span>될 위험을 사전에
+                인지했습니다.
+                <span class="tech-emphasis">WebSocket과 HTTP</span>를 일원화할
+                <span class="tech-emphasis">단일 진입점</span>이 필요하다고
+                판단했습니다.
               </p>
             </div>
             <div class="solution">
@@ -532,9 +801,12 @@
                 의사결정 및 고려
               </h4>
               <p class="text-green-800 dark:text-green-200">
-                별도 상용/오픈소스 게이트웨이 도입 대비 운영 복잡도와 성능을
-                고려해 Nginx를 채택했습니다. 공통 정책(인증/로깅/WS 처리)을
-                중앙화하면서도 각 서비스 변경과 독립적으로 운영될 수 있도록
+                별도 상용/오픈소스 게이트웨이 도입 대비
+                <span class="tech-emphasis">운영 복잡도</span>와
+                <span class="tech-emphasis">성능</span>을 고려해
+                <span class="tech-emphasis">Nginx</span>를 채택했습니다.
+                <span class="tech-emphasis">공통 정책(인증/로깅/WS 처리)</span
+                >을 중앙화하면서도 각 서비스 변경과 독립적으로 운영될 수 있도록
                 구성했습니다.
               </p>
             </div>
@@ -586,12 +858,19 @@
             </h3>
             <ul class="text-green-800 dark:text-green-200 space-y-3">
               <li>
-                • MSA에서의 분산 트랜잭션/장애 격리/관측성 과제를 직접 다루며
-                분산 시스템 설계의 복잡성과 중요성을 체득
+                • MSA에서의
+                <span class="tech-emphasis"
+                  >분산 트랜잭션/장애 격리/관측성</span
+                >
+                과제를 직접 다루며
+                <span class="tech-emphasis">분산 시스템 설계</span>의 복잡성과
+                중요성을 체득
               </li>
               <li>
-                • 비동기 프로그래밍과 WebSocket 실시간 처리 경험을 통해 대용량
-                트래픽에서의 실시간 아키텍처 설계를 경험
+                • <span class="tech-emphasis">비동기 프로그래밍</span>과
+                <span class="tech-emphasis">WebSocket 실시간 처리</span> 경험을
+                통해 <span class="tech-emphasis">대용량 트래픽</span>에서의
+                실시간 아키텍처 설계를 경험
               </li>
             </ul>
           </div>
@@ -607,12 +886,18 @@
             </h3>
             <ul class="text-amber-800 dark:text-amber-200 space-y-3">
               <li>
-                <strong>비동기 통신 도입:</strong> Kafka를 활용한 이벤트
-                스트리밍 기반 비동기 통신으로 결합도 감소 및 탄력성 향상
+                <strong>비동기 통신 도입:</strong>
+                <span class="tech-emphasis">Kafka</span>를 활용한
+                <span class="tech-emphasis">이벤트 스트리밍</span> 기반 비동기
+                통신으로 <span class="tech-emphasis">결합도 감소</span> 및
+                <span class="tech-emphasis">탄력성 향상</span>
               </li>
               <li>
-                <strong>오토스케일링:</strong> Kubernetes 기반 오토스케일링을
-                적용하여 서비스별 부하 패턴에 대응하는 자동 확장/축소 구현
+                <strong>오토스케일링:</strong>
+                <span class="tech-emphasis">Kubernetes</span> 기반
+                오토스케일링을 적용하여
+                <span class="tech-emphasis">서비스별 부하 패턴</span>에 대응하는
+                <span class="tech-emphasis">자동 확장/축소</span> 구현
               </li>
             </ul>
           </div>

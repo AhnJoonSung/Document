@@ -333,6 +333,47 @@
         font-weight: bold;
       }
 
+      /* 담당업무 섹션의 li 첫 번째 줄 strong 태그 스타일링 */
+      .project-overview + ul li strong:first-child {
+        display: block;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 0.75rem 1rem;
+        border-radius: var(--radius-md);
+        font-weight: 600;
+        font-size: 1.05rem;
+        box-shadow: var(--shadow-md);
+        margin: 0 0 0.75rem -1.5rem;
+        position: relative;
+        overflow: hidden;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+      }
+
+      /* 주요 업무 및 성과 섹션의 li 첫 번째 줄 strong 태그 - 심플한 텍스트 스타일 */
+      h4 + ul li strong:first-child {
+        color: var(--primary-color);
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin: 0;
+        display: block;
+        margin-bottom: 0rem;
+      }
+
+      /* 담당업무 섹션의 li 첫 번째 줄 strong 태그도 심플하게 변경 */
+      .project-overview + ul li strong:first-child {
+        color: var(--primary-color);
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin: 0;
+        display: block;
+        margin-bottom: 0rem;
+        background: none;
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+        text-shadow: none;
+      }
+
       li strong {
         color: var(--text-primary);
         font-weight: 600;
