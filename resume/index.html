@@ -164,6 +164,43 @@
         backdrop-filter: blur(10px);
       }
 
+      /* Contact info in header - information list style */
+      .contact-info {
+        margin-top: 1rem;
+        padding: 0.5rem 2rem 0.5rem 1.25rem;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: var(--radius-lg);
+        backdrop-filter: blur(8px);
+        color: #fff;
+        display: inline-block;
+        max-width: 100%;
+      }
+
+      .contact-info li {
+        margin: 0.125rem 0;
+        padding-left: 0;
+        line-height: 1.6;
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .contact-info li::before {
+        content: none;
+      }
+
+      .contact-info strong {
+        color: #e2e8f0;
+        min-width: 3.5rem;
+        font-weight: 600;
+      }
+
+      .contact-info a {
+        color: #fff;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
       .summary {
         background: var(--bg-secondary);
         padding: 1.5rem;
@@ -521,6 +558,13 @@
             <h2>Drimsys</h2>
             <span class="period">2025.03.24 ~ 재직중</span>
           </div>
+          <ul class="contact-info">
+            <li><strong>이름</strong> 안준성</li>
+            <li><strong>연락처</strong> 010-3717-7612</li>
+            <li><strong>깃허브</strong> <a href="https://github.com/AhnJoonSung" target="_blank" rel="noopener noreferrer">github.com/AhnJoonSung</a></li>
+            <li><strong>블로그</strong> <a href="https://velog.io/@tjdtna01/posts" target="_blank" rel="noopener noreferrer">velog.io/@tjdtna01/posts</a></li>
+            <li><strong>이메일</strong> <a href="mailto:tjdtna01@naver.com">tjdtna01@naver.com</a></li>
+          </ul>
           <div class="tech-preview">
             <span class="badge">Spring Boot</span>
             <span class="badge">RDBMS</span>
