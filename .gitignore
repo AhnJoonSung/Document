@@ -1,0 +1,6 @@
+.claude/
+docs/
+resume-app/node_modules/
+resume-app/dist/
+resume-app/pnpm-lock.yaml
+.DS_Store
