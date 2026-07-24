@@ -9,9 +9,9 @@ const contacts = [
 ]
 
 const careers = [
-  { company: '주식회사 대모산개발단', role: 'PM 및 백엔드 리드 개발자', period: '2025.10 ~ 현재', tag: '재직중', highlight: true },
+  { company: '주식회사 조코딩AX파트너스', role: '교육운영팀장', period: '2026.05 ~ 현재', tag: '재직중', highlight: true, note: '대모산개발단 영업양수로 승계 · 근속 2025.10 ~ 연속' },
+  { company: '주식회사 대모산개발단', role: 'PM 및 백엔드 리드 개발자', period: '2025.10 ~ 2026.04', tag: '6개월' },
   { company: '주식회사 드림시스', role: '백엔드 개발자', period: '2025.03 ~ 2025.10', tag: '7개월' },
-  { company: '이치라이프', role: '백엔드 개발자', period: '2021.09 ~ 2022.09', tag: '1년' },
 ]
 
 const educations = [
@@ -39,7 +39,7 @@ function SectionTitle({ children }) {
   )
 }
 
-function TimelineItem({ title, subtitle, period, tag, highlight, isLast }) {
+function TimelineItem({ title, subtitle, period, tag, note, highlight, isLast }) {
   return (
     <div className={`grid grid-cols-[140px_1fr] gap-6 ${isLast ? '' : 'mb-6'}`}>
       <div className="text-right">
@@ -49,6 +49,7 @@ function TimelineItem({ title, subtitle, period, tag, highlight, isLast }) {
         <div className={`absolute -left-[5px] top-2 w-2 h-2 rounded-full ring-2 ring-white ${highlight ? 'bg-neutral-900' : 'bg-neutral-300'}`} />
         <h3 className="text-base font-semibold text-neutral-900 leading-7">{title}</h3>
         {subtitle && <p className="text-sm text-neutral-500 mt-0.5">{subtitle}</p>}
+        {note && <p className="text-xs text-neutral-400 mt-1">{note}</p>}
         {tag && (
           <span className={`inline-block text-xs mt-2 px-2.5 py-0.5 rounded font-medium ${
             highlight ? 'bg-neutral-900 text-white' : 'bg-neutral-100 text-neutral-500'
@@ -123,6 +124,7 @@ export default function App() {
               subtitle={c.role}
               period={c.period}
               tag={c.tag}
+              note={c.note}
               highlight={c.highlight}
               isLast={i === careers.length - 1}
             />
